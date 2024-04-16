@@ -1,0 +1,24 @@
+<div class="container-fluid searchField" ng-controller="SearchController">
+    <form class="row mcenter text-center justify-center">
+        <div class="col-3">
+            <input type="text" placeholder="Keywords" id="keywords" name="keywords" class="form-control" ng-model="form.keywords"/>
+        </div>
+        <div class="col-1">
+            <button class="btn btn-primary" ng-click="searchMemes()">Search</button>
+        </div>
+    </form>
+    <br />
+    <div class="row">
+        <div class="col-12 mcentered text-center">
+            Keywords: {{ form && form.keywords || '[no keywords]' }} 
+        </div>
+    </div>
+    <br />
+    <div class="row justify-center">
+        <div class="col-6 mcentered text-center">
+            Found {{memesCount}} memes
+            <meme ng-repeat="meme in memes.memes"></meme>
+            <div ng-if="form && form.keywords.length && memesCount === 0">No memes found.</div>
+        </div>
+    </div>    
+</div>
